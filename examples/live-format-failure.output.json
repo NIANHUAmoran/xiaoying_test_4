@@ -1,0 +1,277 @@
+{
+  "request_id": "test4-live-over-duration",
+  "status": "incomplete",
+  "reason": "model_error",
+  "missing_fields": [],
+  "mode": "live",
+  "model": "qwen3.8-max",
+  "generated_at": "2026-11-10T17:48:16.350110+00:00",
+  "max_steps": 20,
+  "model_calls": 4,
+  "termination": "model_error",
+  "script": null,
+  "last_draft": {
+    "title": "字幕功能展示",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "展示带字幕的示意画面",
+        "narration": "支持字幕。",
+        "subtitle": "支持字幕。",
+        "duration_seconds": 20,
+        "source_refs": [
+          {
+            "material_id": "P01",
+            "fact_id": "F1",
+            "quote": "支持字幕"
+          }
+        ]
+      },
+      {
+        "id": "S2",
+        "visual": "切换到片尾文字卡",
+        "narration": "试着制作你的下一条视频",
+        "subtitle": "试着制作你的下一条视频",
+        "duration_seconds": 18,
+        "source_refs": []
+      }
+    ]
+  },
+  "title": null,
+  "scenes": [],
+  "estimated_total_seconds": 38,
+  "source_ids": [],
+  "risks": [
+    {
+      "code": "duration_exceeded",
+      "detail": "8 seconds over target"
+    }
+  ],
+  "gaps": [
+    "model_error"
+  ],
+  "checks": {
+    "estimate_duration": {
+      "ok": true,
+      "total_seconds": 38,
+      "within_limit": false,
+      "over_seconds": 8,
+      "scene_estimates": [
+        {
+          "scene_id": "S1",
+          "estimated_seconds": 20,
+          "speech_seconds": 1,
+          "subtitle_seconds": 1,
+          "requested_seconds": 20
+        },
+        {
+          "scene_id": "S2",
+          "estimated_seconds": 18,
+          "speech_seconds": 3,
+          "subtitle_seconds": 3,
+          "requested_seconds": 18
+        }
+      ],
+      "revision": 1
+    }
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "script": {
+        "title": "字幕功能展示",
+        "scenes": [
+          {
+            "id": "S1",
+            "visual": "展示带字幕的示意画面",
+            "narration": "支持字幕。",
+            "subtitle": "支持字幕。",
+            "duration_seconds": 20,
+            "source_refs": [
+              {
+                "material_id": "P01",
+                "fact_id": "F1",
+                "quote": "支持字幕"
+              }
+            ]
+          },
+          {
+            "id": "S2",
+            "visual": "切换到片尾文字卡",
+            "narration": "试着制作你的下一条视频",
+            "subtitle": "试着制作你的下一条视频",
+            "duration_seconds": 18,
+            "source_refs": []
+          }
+        ]
+      },
+      "checks": {
+        "estimate_duration": {
+          "ok": true,
+          "total_seconds": 38,
+          "within_limit": false,
+          "over_seconds": 8,
+          "scene_estimates": [
+            {
+              "scene_id": "S1",
+              "estimated_seconds": 20,
+              "speech_seconds": 1,
+              "subtitle_seconds": 1,
+              "requested_seconds": 20
+            },
+            {
+              "scene_id": "S2",
+              "estimated_seconds": 18,
+              "speech_seconds": 3,
+              "subtitle_seconds": 3,
+              "requested_seconds": 18
+            }
+          ],
+          "revision": 1
+        }
+      }
+    }
+  ],
+  "tool_errors": [],
+  "retrieved_source_ids": [
+    "P01"
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕介绍"
+      },
+      "basis": "Request theme is 字幕介绍, and the first required step is to search materials using the theme verbatim.",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "title": "产品字幕能力说明",
+            "keywords": [
+              "字幕",
+              "短视频",
+              "视频剪辑"
+            ],
+            "facts": [
+              {
+                "id": "F1",
+                "text": "支持字幕"
+              }
+            ]
+          }
+        ]
+      },
+      "next_action": "write_script"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频",
+              "subtitle": "试着制作你的下一条视频",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        }
+      },
+      "basis": "Initial two-scene draft uses retrieved fact and a neutral closing phrase with suggested holds.",
+      "observation": {
+        "ok": true,
+        "revision": 1,
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频",
+              "subtitle": "试着制作你的下一条视频",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        },
+        "checks_invalidated": true
+      },
+      "next_action": "estimate_duration"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "action": "estimate_duration",
+      "arguments": {},
+      "basis": "Current revision 1 was just written and its duration has not been checked.",
+      "observation": {
+        "ok": true,
+        "total_seconds": 38,
+        "within_limit": false,
+        "over_seconds": 8,
+        "scene_estimates": [
+          {
+            "scene_id": "S1",
+            "estimated_seconds": 20,
+            "speech_seconds": 1,
+            "subtitle_seconds": 1,
+            "requested_seconds": 20
+          },
+          {
+            "scene_id": "S2",
+            "estimated_seconds": 18,
+            "speech_seconds": 3,
+            "subtitle_seconds": 3,
+            "requested_seconds": 18
+          }
+        ],
+        "revision": 1
+      },
+      "next_action": "model_error"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "error": "model_error",
+      "detail": "JSONDecodeError",
+      "next_action": null
+    }
+  ]
+}

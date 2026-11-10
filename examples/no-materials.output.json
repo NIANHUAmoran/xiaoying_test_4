@@ -1,0 +1,75 @@
+{
+  "request_id": "test4-no-materials",
+  "status": "needs_materials",
+  "reason": "no_supporting_materials",
+  "missing_fields": [],
+  "mode": "mock",
+  "model": "offline-mock",
+  "generated_at": "2026-11-10T17:55:52.873510+00:00",
+  "max_steps": 20,
+  "model_calls": 3,
+  "termination": "finished",
+  "script": null,
+  "last_draft": null,
+  "title": null,
+  "scenes": [],
+  "estimated_total_seconds": null,
+  "source_ids": [],
+  "risks": [],
+  "gaps": [
+    "no_supporting_materials",
+    "请提供支持主题的产品素材或补充可检索关键词"
+  ],
+  "checks": {},
+  "revisions": [],
+  "tool_errors": [],
+  "retrieved_source_ids": [],
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕介绍"
+      },
+      "basis": "检索主题对应的产品事实",
+      "observation": {
+        "ok": true,
+        "materials": []
+      },
+      "next_action": "search_materials"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕"
+      },
+      "basis": "首轮未找到素材，改写查询再查证",
+      "observation": {
+        "ok": true,
+        "materials": []
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "finish",
+      "arguments": {
+        "kind": "need_materials"
+      },
+      "basis": "补查后仍无产品事实，请求用户补充",
+      "observation": {
+        "ok": true,
+        "status": "needs_materials",
+        "reason": "no_supporting_materials"
+      },
+      "next_action": null
+    }
+  ]
+}

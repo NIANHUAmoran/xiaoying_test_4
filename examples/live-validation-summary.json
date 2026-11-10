@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-11-11T01:55:52.371281+08:00",
+  "all_passed": true,
+  "checks": [
+    {
+      "scenario": "normal",
+      "model": "qwen3.8-max",
+      "status": "completed",
+      "steps": 5,
+      "revisions": 1,
+      "duration_history": [
+        38
+      ],
+      "final_seconds": 38,
+      "target_seconds": 45,
+      "source_ids": [
+        "P01"
+      ],
+      "checks_recomputed": true,
+      "latest_revision_checks_passed": true,
+      "first_search_empty": false,
+      "queries": [
+        "字幕介绍"
+      ]
+    },
+    {
+      "scenario": "over-duration",
+      "model": "qwen3.8-max",
+      "status": "completed",
+      "steps": 7,
+      "revisions": 2,
+      "duration_history": [
+        38,
+        30
+      ],
+      "final_seconds": 30,
+      "target_seconds": 30,
+      "source_ids": [
+        "P01"
+      ],
+      "checks_recomputed": true,
+      "latest_revision_checks_passed": true,
+      "first_search_empty": false,
+      "queries": [
+        "字幕介绍"
+      ]
+    },
+    {
+      "scenario": "query-rewrite",
+      "model": "qwen3.8-max",
+      "status": "completed",
+      "steps": 6,
+      "revisions": 1,
+      "duration_history": [
+        38
+      ],
+      "final_seconds": 38,
+      "target_seconds": 45,
+      "source_ids": [
+        "P01"
+      ],
+      "checks_recomputed": true,
+      "latest_revision_checks_passed": true,
+      "first_search_empty": true,
+      "queries": [
+        "画面文字能力介绍",
+        "字幕"
+      ]
+    }
+  ],
+  "archived_failed_attempts": 1,
+  "scope": "Three successful real-model runs plus one separately archived format failure; no statistical reliability or actual-video-duration claim."
+}

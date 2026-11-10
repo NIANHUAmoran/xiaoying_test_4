@@ -1,0 +1,279 @@
+{
+  "source_output": "too-short.output.json",
+  "request_id": "test4-too-short",
+  "mode": "mock",
+  "model": "offline-mock",
+  "generated_at": "2026-11-10T17:55:53.275255+00:00",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕介绍"
+      },
+      "basis": "检索主题对应的产品事实",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "title": "产品字幕能力说明",
+            "keywords": [
+              "字幕",
+              "短视频",
+              "视频剪辑"
+            ],
+            "facts": [
+              {
+                "id": "F1",
+                "text": "支持字幕"
+              }
+            ]
+          }
+        ]
+      },
+      "next_action": "write_script"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频。",
+              "subtitle": "试着制作你的下一条视频。",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        }
+      },
+      "basis": "根据已检索事实写首稿，暂不声称时长和规则通过",
+      "observation": {
+        "ok": true,
+        "revision": 1,
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频。",
+              "subtitle": "试着制作你的下一条视频。",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        },
+        "checks_invalidated": true
+      },
+      "next_action": "estimate_duration"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "estimate_duration",
+      "arguments": {},
+      "basis": "估算当前稿每景与总时长",
+      "observation": {
+        "ok": true,
+        "total_seconds": 38,
+        "within_limit": false,
+        "over_seconds": 37,
+        "scene_estimates": [
+          {
+            "scene_id": "S1",
+            "estimated_seconds": 20,
+            "speech_seconds": 1,
+            "subtitle_seconds": 1,
+            "requested_seconds": 20
+          },
+          {
+            "scene_id": "S2",
+            "estimated_seconds": 18,
+            "speech_seconds": 3,
+            "subtitle_seconds": 3,
+            "requested_seconds": 18
+          }
+        ],
+        "revision": 1
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "check_rules",
+      "arguments": {},
+      "basis": "检查当前稿事实来源与品牌规则",
+      "observation": {
+        "ok": true,
+        "passed": true,
+        "issues": [],
+        "verified_sources": [
+          {
+            "material_id": "P01",
+            "fact_id": "F1",
+            "quote": "支持字幕"
+          }
+        ],
+        "revision": 1
+      },
+      "next_action": "write_script"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 2,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "basis": "根据失败检查修改脚本，写入新版本并重新执行两项检查",
+      "observation": {
+        "ok": true,
+        "revision": 2,
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 2,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            }
+          ]
+        },
+        "checks_invalidated": true
+      },
+      "next_action": "estimate_duration"
+    },
+    {
+      "step": 6,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "estimate_duration",
+      "arguments": {},
+      "basis": "估算当前稿每景与总时长",
+      "observation": {
+        "ok": true,
+        "total_seconds": 2,
+        "within_limit": false,
+        "over_seconds": 1,
+        "scene_estimates": [
+          {
+            "scene_id": "S1",
+            "estimated_seconds": 2,
+            "speech_seconds": 1,
+            "subtitle_seconds": 1,
+            "requested_seconds": 2
+          }
+        ],
+        "revision": 2
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 7,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "check_rules",
+      "arguments": {},
+      "basis": "检查当前稿事实来源与品牌规则",
+      "observation": {
+        "ok": true,
+        "passed": true,
+        "issues": [],
+        "verified_sources": [
+          {
+            "material_id": "P01",
+            "fact_id": "F1",
+            "quote": "支持字幕"
+          }
+        ],
+        "revision": 2
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 8,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "finish",
+      "arguments": {
+        "kind": "cannot_meet"
+      },
+      "basis": "修改后检查仍未通过，明确返回未完成",
+      "observation": {
+        "ok": true,
+        "status": "incomplete",
+        "reason": "duration_limit_unmet"
+      },
+      "next_action": null
+    }
+  ]
+}

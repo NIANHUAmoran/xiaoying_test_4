@@ -1,0 +1,41 @@
+{
+  "source_output": "tool-failure.output.json",
+  "request_id": "test4-tool-failure",
+  "mode": "mock",
+  "model": "offline-mock",
+  "generated_at": "2026-11-10T17:55:52.999060+00:00",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕介绍"
+      },
+      "basis": "检索主题对应的产品事实",
+      "observation": {
+        "ok": false,
+        "error": "injected_tool_failure",
+        "retryable": false
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "model_output_format": "structured",
+      "action": "finish",
+      "arguments": {
+        "kind": "tool_failure"
+      },
+      "basis": "工具未恢复，不能把异常说成没有素材或检查通过",
+      "observation": {
+        "ok": true,
+        "status": "tool_failure",
+        "reason": "tool_failure"
+      },
+      "next_action": null
+    }
+  ]
+}

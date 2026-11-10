@@ -1,0 +1,23 @@
+{
+  "source_output": "missing-info.output.json",
+  "request_id": "test4-missing-info",
+  "mode": "validation",
+  "model": null,
+  "generated_at": "2026-11-10T17:55:52.738054+00:00",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "runtime",
+      "action": "validate_input",
+      "arguments": {},
+      "basis": "关键输入缺失",
+      "observation": {
+        "missing_fields": [
+          "audience",
+          "target_seconds"
+        ]
+      },
+      "next_action": null
+    }
+  ]
+}

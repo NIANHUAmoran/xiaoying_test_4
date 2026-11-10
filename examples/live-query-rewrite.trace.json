@@ -1,0 +1,194 @@
+{
+  "source_output": "live-query-rewrite.output.json",
+  "request_id": "test4-live-query-rewrite",
+  "mode": "live",
+  "model": "qwen3.8-max",
+  "generated_at": "2026-11-10T17:52:07.684006+00:00",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "search_materials",
+      "arguments": {
+        "query": "画面文字能力介绍"
+      },
+      "basis": "按请求主题先检索素材",
+      "observation": {
+        "ok": true,
+        "materials": []
+      },
+      "next_action": "search_materials"
+    },
+    {
+      "step": 2,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕"
+      },
+      "basis": "theme search returned no materials; canonical_query is 字幕",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "title": "产品字幕能力说明",
+            "keywords": [
+              "字幕",
+              "短视频",
+              "视频剪辑"
+            ],
+            "facts": [
+              {
+                "id": "F1",
+                "text": "支持字幕"
+              }
+            ]
+          }
+        ]
+      },
+      "next_action": "write_script"
+    },
+    {
+      "step": 3,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频。",
+              "subtitle": "试着制作你的下一条视频。",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        }
+      },
+      "basis": "Canonical search returned P01 F1, so draft uses the cited fact and one neutral closing phrase.",
+      "observation": {
+        "ok": true,
+        "revision": 1,
+        "script": {
+          "title": "字幕功能展示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示带字幕的示意画面",
+              "narration": "支持字幕。",
+              "subtitle": "支持字幕。",
+              "duration_seconds": 20,
+              "source_refs": [
+                {
+                  "material_id": "P01",
+                  "fact_id": "F1",
+                  "quote": "支持字幕"
+                }
+              ]
+            },
+            {
+              "id": "S2",
+              "visual": "切换到片尾文字卡",
+              "narration": "试着制作你的下一条视频。",
+              "subtitle": "试着制作你的下一条视频。",
+              "duration_seconds": 18,
+              "source_refs": []
+            }
+          ]
+        },
+        "checks_invalidated": true
+      },
+      "next_action": "estimate_duration"
+    },
+    {
+      "step": 4,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "estimate_duration",
+      "arguments": {},
+      "basis": "Revision 1 was written and needs its actual duration check.",
+      "observation": {
+        "ok": true,
+        "total_seconds": 38,
+        "within_limit": true,
+        "over_seconds": 0,
+        "scene_estimates": [
+          {
+            "scene_id": "S1",
+            "estimated_seconds": 20,
+            "speech_seconds": 1,
+            "subtitle_seconds": 1,
+            "requested_seconds": 20
+          },
+          {
+            "scene_id": "S2",
+            "estimated_seconds": 18,
+            "speech_seconds": 3,
+            "subtitle_seconds": 3,
+            "requested_seconds": 18
+          }
+        ],
+        "revision": 1
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 5,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "check_rules",
+      "arguments": {},
+      "basis": "Duration check passed for revision 1, but rule check has not been run.",
+      "observation": {
+        "ok": true,
+        "passed": true,
+        "issues": [],
+        "verified_sources": [
+          {
+            "material_id": "P01",
+            "fact_id": "F1",
+            "quote": "支持字幕"
+          }
+        ],
+        "revision": 1
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 6,
+      "actor": "model",
+      "model_output_format": "json",
+      "action": "finish",
+      "arguments": {
+        "kind": "complete"
+      },
+      "basis": "Current revision passed both duration and rules checks.",
+      "observation": {
+        "ok": true,
+        "status": "completed",
+        "reason": null
+      },
+      "next_action": null
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "materials": [
+    {
+      "id": "P01",
+      "title": "产品字幕能力说明",
+      "keywords": [
+        "字幕",
+        "短视频",
+        "视频剪辑"
+      ],
+      "facts": [
+        {
+          "id": "F1",
+          "text": "支持字幕"
+        }
+      ]
+    }
+  ],
+  "brand": {
+    "approved_titles": [
+      "字幕功能展示",
+      "认识视频字幕"
+    ],
+    "approved_visuals": [
+      "展示带字幕的示意画面",
+      "展示创作者构思的示意画面",
+      "切换到片尾文字卡",
+      "展示原文素材说明卡"
+    ],
+    "neutral_phrases": [
+      "从一个想法开始",
+      "把想法写成一条视频",
+      "试着制作你的下一条视频"
+    ],
+    "forbidden_phrases": [
+      "行业第一",
+      "百分百保证",
+      "效率提升80%"
+    ],
+    "max_scenes": 6
+  },
+  "timing": {
+    "characters_per_second": 5,
+    "minimum_scene_seconds": 2
+  },
+  "failures": [
+    {
+      "tool": "search_materials",
+      "mode": "always"
+    }
+  ]
+}

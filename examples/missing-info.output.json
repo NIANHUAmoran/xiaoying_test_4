@@ -1,0 +1,42 @@
+{
+  "request_id": "test4-missing-info",
+  "status": "needs_information",
+  "reason": "missing_required_input",
+  "missing_fields": [
+    "audience",
+    "target_seconds"
+  ],
+  "mode": "validation",
+  "model": null,
+  "model_calls": 0,
+  "script": null,
+  "last_draft": null,
+  "title": null,
+  "scenes": [],
+  "estimated_total_seconds": null,
+  "source_ids": [],
+  "risks": [],
+  "revisions": [],
+  "checks": {},
+  "gaps": [
+    "请补充：audience, target_seconds"
+  ],
+  "termination": "input_incomplete",
+  "generated_at": "2026-11-10T17:55:52.738054+00:00",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "runtime",
+      "action": "validate_input",
+      "arguments": {},
+      "basis": "关键输入缺失",
+      "observation": {
+        "missing_fields": [
+          "audience",
+          "target_seconds"
+        ]
+      },
+      "next_action": null
+    }
+  ]
+}

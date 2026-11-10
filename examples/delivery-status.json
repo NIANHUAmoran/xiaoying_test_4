@@ -1,0 +1,19 @@
+{
+  "question": 4,
+  "project": "grounded-short-video-script-agent",
+  "implementation_window_started_at": "2026-11-11T01:29:57+08:00",
+  "recorded_at": "2026-11-11T02:00:51.331625+08:00",
+  "elapsed_minutes": 30.9,
+  "scope": "AI development collaboration and actual validation window including model waits, not candidate personal time",
+  "python": "3.12.3",
+  "unit_tests": 38,
+  "unit_tests_passed": true,
+  "offline_runs": 11,
+  "successful_live_paths": 3,
+  "archived_failed_live_attempts": 1,
+  "live_model": "qwen3.8-max",
+  "live_decision_calls": 22,
+  "github_url": null,
+  "final_commit_sha": null,
+  "remote_submission_completed": false
+}

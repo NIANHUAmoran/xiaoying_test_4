@@ -1,0 +1,101 @@
+[
+  {
+    "scenario": "normal",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 1,
+    "estimated_total_seconds": 38,
+    "data": "data/world.json"
+  },
+  {
+    "scenario": "missing-info",
+    "status": "needs_information",
+    "mode": "validation",
+    "exit_code": 0,
+    "revisions": 0,
+    "estimated_total_seconds": null,
+    "data": "data/world.json"
+  },
+  {
+    "scenario": "no-materials",
+    "status": "needs_materials",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 0,
+    "estimated_total_seconds": null,
+    "data": "data/no-materials.world.json"
+  },
+  {
+    "scenario": "tool-failure",
+    "status": "tool_failure",
+    "mode": "mock",
+    "exit_code": 1,
+    "revisions": 0,
+    "estimated_total_seconds": null,
+    "data": "data/tool-failure.world.json"
+  },
+  {
+    "scenario": "over-duration",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 2,
+    "estimated_total_seconds": 28,
+    "data": "data/world.json"
+  },
+  {
+    "scenario": "too-short",
+    "status": "incomplete",
+    "mode": "mock",
+    "exit_code": 1,
+    "revisions": 2,
+    "estimated_total_seconds": 2,
+    "data": "data/world.json"
+  },
+  {
+    "scenario": "rule-limit",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 2,
+    "estimated_total_seconds": 20,
+    "data": "data/rule-limit.world.json"
+  },
+  {
+    "scenario": "query-rewrite",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 1,
+    "estimated_total_seconds": 38,
+    "data": "data/world.json"
+  },
+  {
+    "scenario": "transient-failure",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 1,
+    "estimated_total_seconds": 38,
+    "data": "data/transient-failure.world.json"
+  },
+  {
+    "scenario": "changed-material",
+    "status": "completed",
+    "mode": "mock",
+    "exit_code": 0,
+    "revisions": 1,
+    "estimated_total_seconds": 38,
+    "data": "data/changed-material.world.json"
+  },
+  {
+    "scenario": "step-limit",
+    "status": "incomplete",
+    "mode": "mock",
+    "exit_code": 1,
+    "revisions": 1,
+    "estimated_total_seconds": null,
+    "data": "data/world.json"
+  }
+]
